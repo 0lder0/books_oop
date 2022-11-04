@@ -9,6 +9,7 @@ const table = document.querySelector("table");
 
 submitButton.addEventListener("click", addBook);
 table.addEventListener('click', deleteBook);
+document.addEventListener('DOMContentLoaded', getBooks);
 
 function addBook(e){
     const book = new Book(inputTitle.value, inputAuthor.value, inputISBN.value);
@@ -22,4 +23,9 @@ function deleteBook(e){
     ui.deleteBook(book);
     book = e.target.parentElement.parentElement.children[2].innerText;
     ls.deleteBook(book);
+}
+
+function getBooks(e) {
+    let books = ls.getData('books');
+    ui.getBooks(books)
 }
