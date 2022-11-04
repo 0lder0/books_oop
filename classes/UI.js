@@ -18,4 +18,11 @@ class UI {
         cell3.innerHTML = isbn;
         cell4.appendChild(cross);
     }
+    deleteBook(book) {
+        if (book.textContent === "X") {
+            if (confirm("Delete this book?")) {
+                book.parentElement.parentElement.remove();
+            }
+        }
+    }
 }

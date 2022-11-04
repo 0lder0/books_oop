@@ -8,6 +8,7 @@ const inputISBN = document.querySelector("#isbn");
 const table = document.querySelector("table");
 
 submitButton.addEventListener("click", addBook);
+table.addEventListener('click', deleteBook);
 
 function addBook(e){
     const book = new Book(inputTitle.value, inputAuthor.value, inputISBN.value);
@@ -15,4 +16,10 @@ function addBook(e){
     ls.addBook(book);
     book.addedToUI();
     e.preventDefault();
+}
+function deleteBook(e){
+    let book = e.target.parentElement.firstChild;
+    ui.deleteBook(book);
+    book = e.target.parentElement.parentElement.children[2].innerText;
+    ls.deleteBook(book);
 }
